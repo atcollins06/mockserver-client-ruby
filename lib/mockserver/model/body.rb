@@ -49,6 +49,10 @@ module MockServer::Model
       Body.new(type: :XPATH, xpath: value)
     end
 
+    def json_schema(value)
+      Body.new(type: :JSON_SCHEMA, jsonSchema: value)
+    end
+
     def parameterized(*parameters)
       Body.new(type: :PARAMETERS, parameters: parameters)
     end
