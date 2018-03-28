@@ -38,15 +38,15 @@ module MockServer::Model
     end
 
     def exact(value)
-      Body.new(type: :STRING, value: value)
+      Body.new(type: :STRING, string: value)
     end
 
     def regex(value)
-      Body.new(type: :REGEX, value: value)
+      Body.new(type: :REGEX, regex: value)
     end
 
     def xpath(value)
-      Body.new(type: :XPATH, value: value)
+      Body.new(type: :XPATH, xpath: value)
     end
 
     def parameterized(*parameters)
