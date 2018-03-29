@@ -23,9 +23,13 @@ module MockServer::Model
 
     property :type, required: true
     property :value
+    property :regex
+    property :jsonSchema
+    property :xpath
     property :parameters
 
     coerce_key :type, BodyType
+    coerce_key :value, String
     coerce_key :regex, String
     coerce_key :jsonSchema, String
     coerce_key :xpath, String
