@@ -1,37 +1,18 @@
 # encoding: UTF-8
 require 'hashie'
-require_relative './enum'
 
 #
 # A class to model the number of times an expectation should be respected.
 # @author:: Nayyara Samuel (mailto: nayyara.samuel@opower.com)
 #
 module MockServer::Model
-  # Enum for boolean values since Ruby does not have this by default
-  class Boolean < Enum
-    def allowed_values
-      [true, false]
-    end
-
-    def !
-      !@value
-    end
-
-    def initialize(supplied_value)
-      @value = pre_process_value(supplied_value)
-    end
-  end
-
   # Model for times class
   class Times < Hashie::Dash
     include Hashie::Extensions::MethodAccess
     include Hashie::Extensions::IgnoreUndeclared
-    include Hashie::Extensions::Coercion
 
     property :remaining_times, default: 0
     property :unlimited, default: false
-
-    coerce_key :unlimited, Boolean
   end
 
   # DSL methods related to times
